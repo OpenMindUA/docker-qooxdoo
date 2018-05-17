@@ -24,7 +24,7 @@ RUN apk update \\
     && apk add git
 
 
-RUN mkdir -p /source
+RUN mkdir -p /source \\
     && git clone https://github.com/qooxdoo/qooxdoo.git /qooxdoo \\
     && cd /qooxdoo/ \\
     && git checkout tags/${git_tag} \\
