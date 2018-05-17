@@ -24,7 +24,8 @@ RUN apk update \\
     && apk add git
 
 
-RUN git clone https://github.com/qooxdoo/qooxdoo.git /qooxdoo \\
+RUN mkdir -p /source
+    && git clone https://github.com/qooxdoo/qooxdoo.git /qooxdoo \\
     && cd /qooxdoo/ \\
     && git checkout tags/${git_tag} \\
     && rm -rf ./.git ./.gitattributes ./.gitignore ./documentation
@@ -32,6 +33,9 @@ RUN git clone https://github.com/qooxdoo/qooxdoo.git /qooxdoo \\
 ENV QOOXDOO_PATH /qooxdoo
 ENV QOOXDOO_VERSION ${qx_version}
 CMD echo qooxdoo version \$QOOXDOO_VERSION
+
+WORKDIR /source
+VOLUME /source
 EOM
 
 done
