@@ -21,14 +21,13 @@ DOCKERFILE=${git_tag}/Dockerfile
 FROM python:2.7.14-alpine3.7
 
 RUN apk update \\
-    && apk add git
-
-
-RUN mkdir -p /source \\
+    && apk add --virtual .build-deps git \\
+    && mkdir -p /source \\
     && git clone https://github.com/qooxdoo/qooxdoo.git /qooxdoo \\
     && cd /qooxdoo/ \\
     && git checkout tags/${git_tag} \\
-    && rm -rf ./.git ./.gitattributes ./.gitignore ./documentation
+    && rm -rf ./.git ./.gitattributes ./.gitignore ./documentation \\
+    && apk del .build-deps
 
 ENV QOOXDOO_PATH /qooxdoo
 ENV QOOXDOO_VERSION ${qx_version}
