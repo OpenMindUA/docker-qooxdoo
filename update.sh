@@ -5,6 +5,7 @@ QOOXDOO_VERSIONS=(
   3.5.1=release_3_5_1
   4.1.1=release_4_1_1
   5.0.2=release_5_0_2
+  5.0.3=5.0.4
 )
 
 
