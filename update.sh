@@ -19,7 +19,7 @@ mkdir -p ${git_tag}
 DOCKERFILE=${git_tag}/Dockerfile
 
 /bin/cat <<EOM >${DOCKERFILE}
-FROM python:2.7.14-alpine3.7
+FROM python:2.7-alpine
 
 RUN apk update \\
     && apk add --virtual .build-deps git \\

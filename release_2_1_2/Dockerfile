@@ -1,4 +1,4 @@
-FROM python:2.7.14-alpine3.7
+FROM python:2.7-alpine
 
 RUN apk update \
     && apk add --virtual .build-deps git \
